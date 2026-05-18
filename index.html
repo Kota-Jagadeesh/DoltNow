@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoItNow — Smart Productivity Platform</title>
+    <!-- Project Stylesheets -->
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Lucide Icon Engine Integration -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Navigation Header Bar -->
+    <header class="navbar">
+        <div class="logo-area">
+            <div class="logo-dot"></div>
+            <span>DoItNow</span>
+        </div>
+        <div class="nav-actions">
+            <!-- Theme Toggle Option Grid Element -->
+            <button class="nm-btn" id="theme-toggle" aria-label="Toggle Theme Preference">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+            </button>
+            <button class="nm-btn" onclick="window.location.href='dashboard.html'">Launch App</button>
+        </div>
+    </header>
+
+    <!-- Main Workspace Hero Element Container -->
+    <main class="hero-container">
+        <div class="badge-container">
+            <span class="promo-badge">Next-Gen Workspace Architecture</span>
+        </div>
+        <h1 class="hero-title">
+            A smart productivity management platform for organizing <span>daily activities efficiently.</span>
+        </h1>
+        <p class="hero-subtitle">
+            Take total control of your execution timeline. Optimize your focus, analyze performance details, and sort work velocity using advanced clean layouts.
+        </p>
+        <button class="nm-btn-accent" onclick="window.location.href='dashboard.html'">
+            Enter Workspace
+        </button>
+    </main>
+
+    <!-- Interactive Grid Area (Feature Layout Showcase) -->
+    <section class="features-section">
+        <h2 class="section-label">Engineered for Peak Performance</h2>
+        <div class="bento-grid">
+            
+            <!-- Feature 1 Card -->
+            <div class="nm-card feature-card">
+                <div class="feature-icon">
+                    <i data-lucide="layout-dashboard"></i>
+                </div>
+                <h3>Tactile Dashboard</h3>
+                <p>Track metrics, active counters, and immediate priorities natively inside an isolated workspace layout.</p>
+            </div>
+
+            <!-- Feature 2 Card -->
+            <div class="nm-card feature-card">
+                <div class="feature-icon">
+                    <i data-lucide="activity"></i>
+                </div>
+                <h3>Advanced Analytics</h3>
+                <p>Calculate execution velocity ratios dynamically using integrated, high-performance localized trackers.</p>
+            </div>
+
+            <!-- Feature 3 Card -->
+            <div class="nm-card feature-card">
+                <div class="feature-icon">
+                    <i data-lucide="timer"></i>
+                </div>
+                <h3>Focus Engine</h3>
+                <p>Eliminate environmental disruptions using an integrated Pomodoro module equipped with native alerts.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Layer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 DoItNow Platform. Built with pure modular architecture.</p>
+    </footer>
+
+    <!-- Core Initialization Handling Scripts -->
+    <script src="assets/js/theme.js"></script>
+    <script>
+        // Trigger rendering transformation across global Lucide tags
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Schedule — DoItNow</title>
+    <!-- Core Application Architecture Stylesheets -->
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/calendar.css">
+    <!-- Lucide Vector Icons Engine Integration -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==========================================
+             COLUMN 1: PERSISTENT NAVIGATION SIDEBAR
+             ========================================== -->
+        <aside class="sidebar-container">
+            <div class="sidebar-logo">
+                <div class="logo-dot"></div>
+                <span>DoItNow</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </a>
+                <a href="analytics.html" class="menu-item">
+                    <i data-lucide="activity"></i> <span>Analytics</span>
+                </a>
+                <a href="calendar.html" class="menu-item active">
+                    <i data-lucide="calendar"></i> <span>Calendar</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i data-lucide="settings"></i> <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-profile-card">
+                <div class="profile-avatar-slot">U</div>
+                <div class="profile-info-slot">
+                    <h4 id="profile-name-display">User Workspace</h4>
+                    <p id="profile-streak-display">🔥 0 Day Streak</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             COLUMN 2: CALENDAR SCHEDULER BOARD
+             ========================================== -->
+        <main class="calendar-workspace">
+            
+            <!-- Workspace Header Module -->
+            <header class="workspace-header">
+                <div class="greeting-block">
+                    <h1>Calendar Schedule</h1>
+                    <p>Map out upcoming structural deadlines and track date-specific milestones.</p>
+                </div>
+                <div class="header-action-nodes">
+                    <a href="dashboard.html" class="back-button" aria-label="Back to Dashboard">
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+                    <button class="nm-btn" id="theme-toggle" aria-label="Toggle Interface Theme">
+                        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Interactive Calendar Engine Grid Block -->
+            <section class="nm-card calendar-frame-container">
+                <div class="calendar-navigation-bar">
+                    <button class="nm-btn" id="prev-month-btn"><i data-lucide="chevron-left"></i></button>
+                    <h2 id="current-month-year-label">May 2026</h2>
+                    <button class="nm-btn" id="next-month-btn"><i data-lucide="chevron-right"></i></button>
+                </div>
+
+                <!-- 7-Column Weekday Header -->
+                <div class="calendar-weekdays-header">
+                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+
+                <!-- Day Blocks Render Area Target -->
+                <div class="calendar-days-grid" id="calendar-days-container"></div>
+            </section>
+
+            <!-- Sub Section: Agenda Viewer for Selected Date -->
+            <section class="agenda-focus-area">
+                <div class="agenda-title-row">
+                    <i data-lucide="calendar-range" class="text-accent"></i>
+                    <h3>Agenda Focus Nodes: <span id="selected-date-string-label">Select a Date</span></h3>
+                </div>
+                <div class="agenda-render-list" id="agenda-items-container">
+                    <div class="empty-agenda-notice">
+                        <p>No task operations scheduled for the highlighted date boundary.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Storage and Core Orchestration Scripts -->
+    <script src="assets/js/storage.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/tasks.js" defer></script>
+    <script src="assets/js/calendar.js" defer></script>
+    <script src="assets/js/notifications.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+/* ==========================================================================
+   THREE-COLUMN SIDEBAR DASHBOARD MATRIX DESIGN (dashboard.css)
+   ========================================================================== */
+
+.dashboard-wrapper {
+    display: grid;
+    grid-template-columns: 260px 1fr 340px;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-main);
+}
+
+/* --- COLUMN 1: TACTILE NAVIGATION SIDEBAR --- */
+.sidebar-container {
+    background-color: var(--bg-main);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.02), inset -2px 0 5px rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding-left: 0.5rem;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.2rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+.menu-item i {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: inline-flex;
+}
+
+.menu-item span {
+    letter-spacing: 0.3px;
+}
+
+.menu-item:hover, .menu-item.active {
+    color: var(--text-primary);
+    box-shadow: var(--nm-pressed);
+}
+
+.sidebar-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem;
+    border-radius: 16px;
+    box-shadow: var(--nm-flat);
+}
+
+.profile-avatar-slot {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.profile-info-slot h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.profile-info-slot p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* --- COLUMN 2: CENTER WORKSPACE HUB --- */
+.main-workspace {
+    padding: 2.5rem;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.main-workspace {
+    animation: pageSlideIn 0.35s ease-out;
+}
+
+.workspace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+}
+
+.header-action-nodes {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0 !important;
+    border-radius: 12px;
+    background: var(--bg-main);
+    box-shadow: var(--nm-flat);
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.back-button:hover {
+    box-shadow: var(--nm-pressed);
+    transform: scale(1.05);
+}
+
+.back-button i,
+.back-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+#theme-toggle {
+    padding: 0.5rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+#theme-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.greeting-block h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.greeting-block p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.quote-ticker-container {
+    flex: 1;
+    max-width: 450px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: var(--nm-pressed);
+    text-align: center;
+}
+
+#manifesto-quote {
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Quantitative Grid Metrics Rows */
+.metrics-dashboard-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.metric-nm-card {
+    background: var(--bg-main);
+    box-shadow: var(--nm-flat);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-top: 0.4rem;
+}
+
+.goal-progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-main);
+    box-shadow: var(--nm-pressed);
+    border-radius: 10px;
+    margin-top: 0.75rem;
+    overflow: hidden;
+}
+
+.goal-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 10px;
+    transition: width var(--transition-speed);
+}
+
+/* Operational Search Filters Area */
+.filter-pipeline-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-input-wrapper .input-icon {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    width: 18px;
+    height: 18px;
+}
+
+.search-input-wrapper .nm-input {
+    padding-left: 3rem;
+    width: 100%;
+}
+
+.filter-dropdown-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-add-btn {
+    box-shadow: var(--nm-flat);
+    background: var(--accent);
+    color: #ffffff !important;
+}
+.action-add-btn:hover {
+    box-shadow: var(--nm-pressed);
+}
+
+/* Canvas Node List Area */
+.task-render-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-height: 250px;
+    padding: 0.5rem;
+}
+
+.empty-state-card {
+    box-shadow: var(--nm-pressed);
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.empty-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    stroke-width: 1.5;
+}
+
+/* --- COLUMN 3: RIGHT UTILITY SIDEBAR --- */
+.utility-sidebar {
+    background-color: var(--bg-main);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.02), inset 2px 0 5px rgba(255, 255, 255, 0.5);
+    padding: 2.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+.sub-panel-card {
+    padding: 1.5rem !important;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--bg-main);
+    padding-bottom: 0.5rem;
+}
+
+.panel-header i {
+    color: var(--accent);
+    width: 20px;
+    height: 20px;
+}
+
+/* Pomodoro Specific Interface Elements */
+.pomodoro-timer-core {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.circular-timer-display {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: var(--nm-flat);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#pomo-time-countdown {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.timer-label-indicator {
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.timer-controls-row {
+    display: flex;
+    gap: 1.25rem;
+}
+
+/* Scratchpad Layout Constraints */
+.scratchpad-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.nm-textarea {
+    flex: 1;
+    resize: none;
+    margin-top: 0.5rem;
+}
+
+/* ========== ENHANCED ANIMATIONS & INTERACTIONS ========== */
+
+/* Smooth Metric Card Updates */
+.metric-nm-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-nm-card.metric-pulse {
+    animation: cardGlow 0.6s ease-out;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: var(--nm-flat);
+        background: var(--bg-main);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+        background: rgba(99, 102, 241, 0.03);
+    }
+    100% {
+        box-shadow: var(--nm-flat);
+        background: var(--bg-main);
+    }
+}
+
+/* Dynamic Progress Bar Animation */
+.goal-progress-bar-fill {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.goal-progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmerBar 2s infinite;
+}
+
+@keyframes shimmerBar {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Enhanced Sidebar Active State */
+.menu-item.active {
+    position: relative;
+    color: var(--accent);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2), var(--nm-pressed);
+}
+
+.menu-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Smooth Metric Value Transitions */
+.metric-value {
+    transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+/* Empty State Card Animation */
+.empty-state-card {
+    animation: fadeInEmpty 0.5s ease-out;
+}
+
+@keyframes fadeInEmpty {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

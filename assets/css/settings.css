@@ -1,0 +1,186 @@
+/* ==========================================================================
+   NEUMORPHIC CONFIGURATION CONTROL PANEL LAYOUT DESIGN (settings.css)
+   ========================================================================== */
+
+/* Workspace Header with Theme Toggle Positioned Right */
+.workspace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+}
+
+.greeting-block h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.greeting-block p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 0.2rem;
+}
+
+.header-action-nodes {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#theme-toggle {
+    padding: 0.5rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+#theme-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.settings-workspace {
+    grid-column: span 2;
+    padding: 2.5rem 4rem;
+    overflow-y: auto;
+    height: 100vh;
+    animation: pageSlideIn 0.35s ease-out;
+}
+
+.header-action-nodes {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0 !important;
+    border-radius: 12px;
+    background: var(--bg-main);
+    box-shadow: var(--nm-flat);
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.back-button:hover {
+    box-shadow: var(--nm-pressed);
+    transform: scale(1.05);
+}
+
+.back-button i,
+.back-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+#theme-toggle {
+    padding: 0.5rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.08);
+}
+
+#theme-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.settings-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 800px;
+}
+
+.settings-card-block {
+    padding: 2.2rem !important;
+}
+
+/* Form Layout System Modifiers */
+.settings-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.settings-action-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0.5rem;
+}
+
+/* System Action Item Rows Layout */
+.settings-info-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.system-action-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.system-row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    border-radius: 14px;
+    box-shadow: var(--nm-pressed);
+}
+
+.sys-label-left h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.sys-label-left p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Color Priority State Buttons Modifiers */
+.btn-danger-soft {
+    color: var(--high-priority) !important;
+    font-weight: 700;
+}
+
+.btn-danger-solid {
+    background-color: var(--high-priority) !important;
+    color: #ffffff !important;
+    box-shadow: var(--nm-flat);
+}
+
+.btn-danger-solid:hover {
+    box-shadow: var(--nm-pressed);
+}

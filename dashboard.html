@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — DoItNow</title>
+    <!-- Core Themes and Component Stylesheets -->
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <!-- Lucide Vector Icons Engine -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==========================================
+             COLUMN 1: TACTILE NAVIGATION SIDEBAR
+             ========================================== -->
+        <aside class="sidebar-container">
+            <div class="sidebar-logo">
+                <div class="logo-dot"></div>
+                <span>DoItNow</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item active">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </a>
+                <a href="analytics.html" class="menu-item">
+                    <i data-lucide="activity"></i> <span>Analytics</span>
+                </a>
+                <a href="calendar.html" class="menu-item">
+                    <i data-lucide="calendar"></i> <span>Calendar</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i data-lucide="settings"></i> <span>Settings</span>
+                </a>
+            </nav>
+
+            <!-- Mini User Profile Badge Block -->
+            <div class="sidebar-profile-card">
+                <div class="profile-avatar-slot">U</div>
+                <div class="profile-info-slot">
+                    <h4 id="profile-name-display">User Workspace</h4>
+                    <p id="profile-streak-display">🔥 0 Day Streak</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             COLUMN 2: MAIN TASK MANIPULATION HUB
+             ========================================== -->
+        <main class="main-workspace">
+            
+            <!-- Dynamic Header Panel -->
+            <header class="workspace-header">
+                <div class="greeting-block">
+                    <h1 id="dynamic-greeting">Welcome Back</h1>
+                    <p id="live-clock-display">Loading system time...</p>
+                </div>
+                <!-- Dynamic Quote Ticker -->
+                <div class="quote-ticker-container">
+                    <p id="manifesto-quote">"Small progress is still progress."</p>
+                </div>
+                <div class="header-action-nodes">
+                    <button class="nm-btn" id="theme-toggle" aria-label="Toggle Interface Theme">
+                        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Real-time Quantitative Analytics Cards -->
+            <section class="metrics-dashboard-row">
+                <div class="metric-nm-card">
+                    <span class="metric-label">Total Allocated</span>
+                    <h3 id="stat-total-tasks" class="metric-value">0</h3>
+                </div>
+                <div class="metric-nm-card">
+                    <span class="metric-label">Pending Review</span>
+                    <h3 id="stat-pending-tasks" class="metric-value text-warn">0</h3>
+                </div>
+                <div class="metric-nm-card">
+                    <span class="metric-label">Completed Nodes</span>
+                    <h3 id="stat-completed-tasks" class="metric-value text-success">0</h3>
+                </div>
+                <div class="metric-nm-card">
+                    <span class="metric-label">Daily Target Metric</span>
+                    <h3 id="stat-daily-goal" class="metric-value text-accent">0%</h3>
+                    <div class="goal-progress-bar-container">
+                        <div id="goal-progress-fill" class="goal-progress-bar-fill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Search, Advanced Sorting & Filters Pipeline Section -->
+            <section class="filter-pipeline-control">
+                <div class="search-input-wrapper">
+                    <i data-lucide="search" class="input-icon"></i>
+                    <input type="text" id="task-search-input" class="nm-input" placeholder="Search operational titles...">
+                </div>
+                <div class="filter-dropdown-group">
+                    <select id="filter-category" class="nm-select">
+                        <option value="all">All Categories</option>
+                        <option value="Study">Study</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Health">Health</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Meetings">Meetings</option>
+                    </select>
+                    <select id="filter-priority" class="nm-select">
+                        <option value="all">All Priorities</option>
+                        <option value="high">🔴 High Priority</option>
+                        <option value="medium">🟡 Medium Priority</option>
+                        <option value="low">🟢 Low Priority</option>
+                    </select>
+                </div>
+                <button class="nm-btn action-add-btn" id="open-task-modal-btn">
+                    <i data-lucide="plus"></i> Create Action Task
+                </button>
+            </section>
+
+            <!-- Dynamic Drag & Drop Task Render Targets -->
+            <section class="task-render-canvas" id="task-list-container">
+                <!-- Task items will be dynamically appended here via tasks.js -->
+                <div class="empty-state-card">
+                    <i data-lucide="shield-alert" class="empty-icon"></i>
+                    <p>No active operational items found matching filters. Create an action task to get started!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ==========================================
+             COLUMN 3: SECONDARY WORKSPACE UTILITIES
+             ========================================== -->
+        <aside class="utility-sidebar">
+            
+            <!-- Pomodoro Focus Timer Panel Container -->
+            <div class="nm-card sub-panel-card pomodoro-panel">
+                <div class="panel-header">
+                    <i data-lucide="timer"></i> <h3>Pomodoro Focus</h3>
+                </div>
+                <div class="pomodoro-timer-core">
+                    <div class="circular-timer-display">
+                        <span id="pomo-time-countdown">25:00</span>
+                    </div>
+                    <div class="timer-label-indicator">
+                        <span id="pomo-state-label">Deep Focus Block</span>
+                    </div>
+                    <div class="timer-controls-row">
+                        <button class="nm-btn" id="pomo-start-btn" aria-label="Start Timer"><i data-lucide="play"></i></button>
+                        <button class="nm-btn" id="pomo-pause-btn" aria-label="Pause Timer"><i data-lucide="pause"></i></button>
+                        <button class="nm-btn" id="pomo-reset-btn" aria-label="Reset Session"><i data-lucide="rotate-ccw"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Scratchpad Sticky Notes Grid Component -->
+            <div class="nm-card sub-panel-card scratchpad-panel">
+                <div class="panel-header">
+                    <i data-lucide="edit-3"></i> <h3>Tactile Scratchpad</h3>
+                </div>
+                <textarea id="scratchpad-textarea" class="nm-textarea" placeholder="Type raw contextual ideas, intermediate notes, or temporary metrics here..."></textarea>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ==========================================
+         FLOATING LAYER: TASK CREATION MODAL WINDOW
+         ========================================== -->
+    <div class="modal-overlay-backdrop" id="task-creation-modal">
+        <div class="nm-modal-content-box">
+            <div class="modal-box-header">
+                <h2>Initialize Task Node</h2>
+                <button class="modal-close-trigger" id="close-task-modal-btn">&times;</button>
+            </div>
+            <form id="task-node-creation-form" class="modal-form-body">
+                <div class="form-input-block">
+                    <label for="task-title-input">Task Title Description</label>
+                    <input type="text" id="task-title-input" class="nm-input" required placeholder="e.g., Submit ASC Newsletter Abstract">
+                </div>
+                
+                <div class="form-grid-row">
+                    <div class="form-input-block">
+                        <label for="task-category-select">Category</label>
+                        <select id="task-category-select" class="nm-select">
+                            <option value="Study">Study</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health">Health</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Meetings">Meetings</option>
+                        </select>
+                    </div>
+                    <div class="form-input-block">
+                        <label for="task-priority-select">Priority Urgency</label>
+                        <select id="task-priority-select" class="nm-select">
+                            <option value="high">High Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid-row">
+                    <div class="form-input-block">
+                        <label for="task-date-input">Target End Date</label>
+                        <input type="date" id="task-date-input" class="nm-input" required>
+                    </div>
+                    <div class="form-input-block">
+                        <label for="task-time-input">Target Time</label>
+                        <input type="time" id="task-time-input" class="nm-input" required>
+                    </div>
+                </div>
+
+                <div class="modal-form-actions">
+                    <button type="button" class="nm-btn" id="cancel-modal-action-btn">Abort</button>
+                    <button type="submit" class="nm-btn nm-btn-accent">Commit Node</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         FLOATING LAYER: NON-BLOCKING TOAST ALERTS
+         ========================================== -->
+    <div class="toast-notification-stack" id="toast-stack-container"></div>
+
+    <!-- Infrastructure Scripts Integration -->
+    <script src="assets/js/storage.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/notifications.js" defer></script>
+    <script src="assets/js/tasks.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+    <script src="assets/js/dragdrop.js" defer></script>
+    <script src="assets/js/quotes.js" defer></script>
+    <script src="assets/js/pomodoro.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script>
+        // Structural Icon Parsing Trigger Loop
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

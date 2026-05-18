@@ -1,0 +1,215 @@
+/* ==========================================================================
+   GLOBAL STYLE & LANDING PAGE CORE (style.css)
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* --- Reusable Neumorphic Components --- */
+html {
+     scroll-behavior: smooth;
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) for icons */
+[data-lucide] {
+     display: inline-block;
+     vertical-align: middle;
+}
+
+.nm-card {
+    background: var(--bg-main);
+    border-radius: 20px;
+    box-shadow: var(--nm-flat);
+    padding: 2.5rem;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.nm-card:hover {
+    transform: translateY(-4px);
+}
+
+.nm-btn {
+    background: var(--bg-main);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--nm-button);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-speed);
+}
+
+.nm-btn:important-action {
+    color: white;
+    background: var(--accent);
+}
+
+.nm-btn:hover {
+    box-shadow: var(--nm-pressed);
+    transform: scale(0.98);
+}
+
+.nm-btn-accent {
+    background: var(--accent);
+    color: #ffffff !important;
+    border: none;
+    padding: 1rem 2.2rem;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: var(--nm-flat);
+    transition: var(--transition-speed);
+}
+
+.nm-btn-accent:hover {
+    background: var(--accent-hover);
+    box-shadow: var(--nm-pressed);
+}
+
+/* --- Navigation Header --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    width: 100%;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* --- Hero Section --- */
+.hero-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.badge-container {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.promo-badge {
+    box-shadow: var(--nm-pressed);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    max-width: 850px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+}
+
+/* --- Features Grid (Bento Layout) --- */
+.features-section {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.section-label {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    letter-spacing: -0.5px;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.feature-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    box-shadow: var(--nm-pressed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Footer Area --- */
+.main-footer {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4rem;
+}

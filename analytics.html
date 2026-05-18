@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Hub — DoItNow</title>
+    <!-- Core Application Infrastructure Stylesheets -->
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/analytics.css">
+    <!-- Lucide Vector Icons & Chart.js Injection Engines -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==========================================
+             COLUMN 1: PERSISTENT NAVIGATION SIDEBAR
+             ========================================== -->
+        <aside class="sidebar-container">
+            <div class="sidebar-logo">
+                <div class="logo-dot"></div>
+                <span>DoItNow</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
+                </a>
+                <a href="analytics.html" class="menu-item active">
+                    <i data-lucide="activity"></i> <span>Analytics</span>
+                </a>
+                <a href="calendar.html" class="menu-item">
+                    <i data-lucide="calendar"></i> <span>Calendar</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i data-lucide="settings"></i> <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-profile-card">
+                <div class="profile-avatar-slot">U</div>
+                <div class="profile-info-slot">
+                    <h4 id="profile-name-display">User Workspace</h4>
+                    <p id="profile-streak-display">🔥 0 Day Streak</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             COLUMN 2: FULL-WIDTH INSIGHTS CANVAS
+             ========================================== -->
+        <main class="analytics-workspace">
+            
+            <!-- Workspace Header Module -->
+            <header class="workspace-header">
+                <div class="greeting-block">
+                    <h1>Productivity Insights</h1>
+                    <p>Dynamic assessment of your execution velocity and task metrics.</p>
+                </div>
+                <div class="header-action-nodes">
+                    <a href="dashboard.html" class="back-button" aria-label="Back to Dashboard">
+                        <i data-lucide="arrow-left"></i>
+                    </a>
+                    <button class="nm-btn" id="theme-toggle" aria-label="Toggle Interface Theme">
+                        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                    </button>
+                </div>
+            </header>
+
+            <!-- High-Level Overview Stats Blocks -->
+            <section class="insights-summary-grid">
+                <div class="metric-nm-card data-card-3d">
+                    <div class="card-icon-header text-accent">
+                        <i data-lucide="award"></i>
+                    </div>
+                    <span class="metric-label">Productivity Score</span>
+                    <h3 id="analytics-score-val" class="metric-value">0%</h3>
+                    <p class="summary-subtext">Overall efficiency based on current task closure metrics.</p>
+                </div>
+                
+                <div class="metric-nm-card data-card-3d">
+                    <div class="card-icon-header text-success">
+                        <i data-lucide="check-square"></i>
+                    </div>
+                    <span class="metric-label">Total Completed Nodes</span>
+                    <h3 id="analytics-completed-val" class="metric-value">0</h3>
+                    <p class="summary-subtext">Action tasks successfully checked out of local storage history.</p>
+                </div>
+
+                <div class="metric-nm-card data-card-3d">
+                    <div class="card-icon-header text-warn">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <span class="metric-label">Velocity Ratio</span>
+                    <h3 id="analytics-velocity-val" class="metric-value">0.0</h3>
+                    <p class="summary-subtext">Average count of operational goals achieved per day.</p>
+                </div>
+            </section>
+
+            <!-- Chart.js Graph Grid Layout -->
+            <section class="charts-visualization-matrix">
+                <!-- Priority Breakdown (Bar Chart Canvas) -->
+                <div class="nm-card chart-container-card">
+                    <div class="chart-header">
+                        <i data-lucide="bar-chart-3"></i> <h3>Priority Distribution Weight</h3>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="priorityBarChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Category Quantities (Pie Chart Canvas) -->
+                <div class="nm-card chart-container-card">
+                    <div class="chart-header">
+                        <i data-lucide="pie-chart"></i> <h3>Category Focus Allocation</h3>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="categoryPieChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Segment: Historic Activity Logs -->
+            <section class="nm-card timeline-history-card">
+                <div class="chart-header">
+                    <i data-lucide="history"></i> <h3>Platform Operations Log</h3>
+                </div>
+                <div class="timeline-logs-wrapper" id="activity-log-timeline">
+                    <!-- Iterative lifecycle logs will be loaded dynamically here -->
+                    <div class="empty-timeline-notice">
+                        <p>No operational items found in recent processing queues.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Storage and Synchronization Engines -->
+    <script src="assets/js/storage.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/analytics.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

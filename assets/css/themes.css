@@ -1,0 +1,45 @@
+/* ==========================================================================
+   NEUMORPHIC THEME TOKENS (themes.css)
+   ========================================================================== */
+
+:root[data-theme="light"] {
+    /* Pure Light / Matte White Base */
+    --bg-main: #ffffff;
+    --text-primary: #2d3748;
+    --text-muted: #718096;
+    --accent: #4f46e5; /* Indigo */
+    --accent-hover: #4338ca;
+
+    /* Neumorphic Shadows: Light Mode */
+    --nm-flat: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+    --nm-concave: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff;
+    --nm-pressed: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+    --nm-button: 5px 5px 10px #d1d9e6, -5px -5px 10px #ffffff;
+    
+    /* Decorative Priorities */
+    --high-priority: #f56565;
+    --med-priority: #ecc94b;
+    --low-priority: #48bb78;
+    
+    --transition-speed: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+:root[data-theme="dark"] {
+    /* Clean Solid Dark Slate Base */
+    --bg-main: #000000;
+    --text-primary: #f7fafc;
+    --text-muted: #a0aec0;
+    --accent: #6366f1;
+    --accent-hover: #4f46e5;
+
+    /* Neumorphic Shadows: Dark Mode (Calculated precisely for #1a202c) */
+    --nm-flat: 8px 8px 16px #11151d, -8px -8px 16px #232b3b;
+    --nm-concave: inset 8px 8px 16px #11151d, inset -8px -8px 16px #232b3b;
+    --nm-pressed: inset 4px 4px 8px #11151d, inset -4px -4px 8px #232b3b;
+    --nm-button: 5px 5px 10px #11151d, -5px -5px 10px #232b3b;
+    
+    /* Decorative Priorities */
+    --high-priority: #fc8181;
+    --med-priority: #f6e05e;
+    --low-priority: #68d391;
+}
