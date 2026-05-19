@@ -5,14 +5,14 @@ const StorageEngine = {
     getInitialState() {
         return {
             user: {
-                name: "Kota Jagadeeshwar",
+                name: "Your Name",
                 streak: 3,
                 dailyGoal: 5
             },
             tasks: [
                 {
                     id: 1716228000000,
-                    title: "Submit Modern Android Abstract to ASC Newsletter",
+                    title: "Submit Android Abstract to ASC Newsletter",
                     category: "Study",
                     priority: "high",
                     dueDate: "2026-05-20",
@@ -21,7 +21,7 @@ const StorageEngine = {
                 },
                 {
                     id: 1716238800000,
-                    title: "Refactor Application Dark Theme Persistence Logic",
+                    title: "Refactor app Dark Theme Persistence Logic",
                     category: "Work",
                     priority: "medium",
                     dueDate: "2026-05-22",
@@ -30,7 +30,7 @@ const StorageEngine = {
                 },
                 {
                     id: 1716246000000,
-                    title: "Cardio Session and Hydration Check",
+                    title: "cardio session and hyyderation check",
                     category: "Health",
                     priority: "low",
                     dueDate: "2026-05-19",
@@ -38,7 +38,7 @@ const StorageEngine = {
                     completed: false
                 }
             ],
-            scratchpad: "Use this physical neumorphic scratchpad to store temporary data pointers, API definitions, or layout adjustments mid-sprint."
+            scratchpad: "This is your scratchpad. Jot down quick notes or ideas here! :)"
         };
     },
 
