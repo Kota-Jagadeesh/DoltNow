@@ -1,13 +1,7 @@
-/**
- * ==========================================================================
- * POMODORO FOCUS TIMER ENGINE ENGINE (pomodoro.js)
- * ==========================================================================
- */
-
 const PomodoroTimer = {
     init() {
-        this.durationFocus = 25 * 60; // 25 Minutes mapped to physical seconds
-        this.durationBreak = 5 * 60;  // 5 Minute break cycle mapping
+        this.durationFocus = 25 * 60;
+        this.durationBreak = 5 * 60;
         this.timeLeft = this.durationFocus;
         this.timerIntervalId = null;
         this.isBreakModeActive = false;
@@ -34,17 +28,17 @@ const PomodoroTimer = {
     },
 
     startSession() {
-        if (this.timerIntervalId !== null) return; // Prevent multiple concurrent loop allocations
+        if (this.timerIntervalId !== null) return;
 
         this.startBtn.classList.add('checked-active');
         this.pauseBtn.classList.remove('checked-active');
 
-        // Capture starting timestamp parameters to calculate true time differentials
+
         const endTimestamp = Date.now() + (this.timeLeft * 1000);
 
         this.timerIntervalId = setInterval(() => {
             const remainingSeconds = Math.round((endTimestamp - Date.now()) / 1000);
-            
+
             if (remainingSeconds <= 0) {
                 this.timeLeft = 0;
                 this.updateUI();
@@ -53,7 +47,7 @@ const PomodoroTimer = {
                 this.timeLeft = remainingSeconds;
                 this.updateUI();
             }
-        }, 200); // High-frequency operational sampling loop ensures accurate countdown display
+        }, 200);
     },
 
     pauseSession() {
@@ -75,7 +69,7 @@ const PomodoroTimer = {
 
         this.startBtn.classList.remove('checked-active');
         this.pauseBtn.classList.remove('checked-active');
-        
+
         ToastNotification.show("Focus intervals reset to standard limits", "warning");
         this.updateUI();
     },
@@ -97,7 +91,7 @@ const PomodoroTimer = {
         }
 
         this.updateUI();
-        this.startSession(); // Automatically transition and spin up next sequential clock cycle
+        this.startSession();
     },
 
     updateUI() {

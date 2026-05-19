@@ -1,16 +1,11 @@
-/* ==========================================================================
-   THREE-COLUMN SIDEBAR DASHBOARD MATRIX DESIGN (dashboard.css)
-   ========================================================================== */
-
 .dashboard-wrapper {
     display: grid;
     grid-template-columns: 260px 1fr 340px;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: var(--bg-main);
 }
 
-/* --- COLUMN 1: TACTILE NAVIGATION SIDEBAR --- */
 .sidebar-container {
     background-color: var(--bg-main);
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.02), inset -2px 0 5px rgba(255, 255, 255, 0.5);
@@ -101,7 +96,6 @@
     color: var(--text-muted);
 }
 
-/* --- COLUMN 2: CENTER WORKSPACE HUB --- */
 .main-workspace {
     padding: 2.5rem;
     overflow-y: auto;
@@ -201,7 +195,6 @@
     font-weight: 500;
 }
 
-/* Quantitative Grid Metrics Rows */
 .metrics-dashboard-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -248,7 +241,6 @@
     transition: width var(--transition-speed);
 }
 
-/* Operational Search Filters Area */
 .filter-pipeline-control {
     display: flex;
     align-items: center;
@@ -291,7 +283,6 @@
     box-shadow: var(--nm-pressed);
 }
 
-/* Canvas Node List Area */
 .task-render-canvas {
     display: flex;
     flex-direction: column;
@@ -315,7 +306,6 @@
     stroke-width: 1.5;
 }
 
-/* --- COLUMN 3: RIGHT UTILITY SIDEBAR --- */
 .utility-sidebar {
     background-color: var(--bg-main);
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.02), inset 2px 0 5px rgba(255, 255, 255, 0.5);
@@ -349,7 +339,6 @@
     height: 20px;
 }
 
-/* Pomodoro Specific Interface Elements */
 .pomodoro-timer-core {
     display: flex;
     flex-direction: column;
@@ -387,7 +376,6 @@
     gap: 1.25rem;
 }
 
-/* Scratchpad Layout Constraints */
 .scratchpad-panel {
     flex: 1;
     display: flex;
@@ -400,9 +388,6 @@
     margin-top: 0.5rem;
 }
 
-/* ========== ENHANCED ANIMATIONS & INTERACTIONS ========== */
-
-/* Smooth Metric Card Updates */
 .metric-nm-card {
     position: relative;
     overflow: hidden;
@@ -427,7 +412,171 @@
     }
 }
 
-/* Dynamic Progress Bar Animation */
+@media (max-width: 1280px) {
+    .dashboard-wrapper {
+        grid-template-columns: 240px 1fr;
+    }
+
+    .utility-sidebar {
+        grid-column: 1 / -1;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .utility-sidebar > .nm-card {
+        flex: 1 1 320px;
+    }
+
+    .main-workspace {
+        height: auto;
+        min-height: 100dvh;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-container,
+    .main-workspace,
+    .utility-sidebar {
+        height: auto;
+        min-height: auto;
+        position: relative;
+        top: auto;
+        overflow: visible;
+    }
+
+    .sidebar-container,
+    .utility-sidebar,
+    .main-workspace {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .sidebar-container {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .sidebar-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .menu-item {
+        flex: 1 1 160px;
+    }
+
+    .workspace-header,
+    .filter-pipeline-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quote-ticker-container,
+    .search-input-wrapper,
+    .action-add-btn {
+        width: 100%;
+        max-width: none;
+    }
+
+    .metrics-dashboard-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filter-dropdown-group {
+        flex-wrap: wrap;
+    }
+
+    .filter-dropdown-group .nm-select {
+        flex: 1 1 220px;
+    }
+
+    .task-node-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-right-cluster {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 720px) {
+    .sidebar-container,
+    .main-workspace,
+    .utility-sidebar {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .greeting-block h1 {
+        font-size: 1.8rem;
+    }
+
+    .metrics-dashboard-row {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-dropdown-group,
+    .timer-controls-row,
+    .modal-form-actions {
+        flex-direction: column;
+    }
+
+    .filter-dropdown-group .nm-select,
+    .timer-controls-row .nm-btn,
+    .modal-form-actions .nm-btn,
+    .action-add-btn {
+        width: 100%;
+    }
+
+    .main-workspace {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .sidebar-profile-card {
+        width: 100%;
+    }
+
+    .utility-sidebar {
+        gap: 1.25rem;
+    }
+
+    .circular-timer-display {
+        width: 132px;
+        height: 132px;
+    }
+
+    #pomo-time-countdown {
+        font-size: 1.7rem;
+    }
+
+    .modal-overlay-backdrop {
+        padding: 1rem;
+        align-items: flex-end;
+    }
+
+    .nm-modal-content-box {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .toast-notification-stack {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
 .goal-progress-bar-fill {
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -453,7 +602,6 @@
     }
 }
 
-/* Enhanced Sidebar Active State */
 .menu-item.active {
     position: relative;
     color: var(--accent);
@@ -471,12 +619,10 @@
     border-radius: 0 2px 2px 0;
 }
 
-/* Smooth Metric Value Transitions */
 .metric-value {
     transition: font-size 0.3s ease, color 0.3s ease;
 }
 
-/* Empty State Card Animation */
 .empty-state-card {
     animation: fadeInEmpty 0.5s ease-out;
 }

@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analytics Hub — DoItNow</title>
-    <!-- Core Application Infrastructure Stylesheets -->
+
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/analytics.css">
-    <!-- Lucide Vector Icons & Chart.js Injection Engines -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <div class="dashboard-wrapper">
-        
-        <!-- ==========================================
-             COLUMN 1: PERSISTENT NAVIGATION SIDEBAR
-             ========================================== -->
+
+
         <aside class="sidebar-container">
             <div class="sidebar-logo">
                 <div class="logo-dot"></div>
                 <span>DoItNow</span>
             </div>
-            
+
             <nav class="sidebar-menu">
                 <a href="dashboard.html" class="menu-item">
                     <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
@@ -50,12 +49,10 @@
             </div>
         </aside>
 
-        <!-- ==========================================
-             COLUMN 2: FULL-WIDTH INSIGHTS CANVAS
-             ========================================== -->
+
         <main class="analytics-workspace">
-            
-            <!-- Workspace Header Module -->
+
+
             <header class="workspace-header">
                 <div class="greeting-block">
                     <h1>Productivity Insights</h1>
@@ -71,7 +68,7 @@
                 </div>
             </header>
 
-            <!-- High-Level Overview Stats Blocks -->
+
             <section class="insights-summary-grid">
                 <div class="metric-nm-card data-card-3d">
                     <div class="card-icon-header text-accent">
@@ -81,7 +78,7 @@
                     <h3 id="analytics-score-val" class="metric-value">0%</h3>
                     <p class="summary-subtext">Overall efficiency based on current task closure metrics.</p>
                 </div>
-                
+
                 <div class="metric-nm-card data-card-3d">
                     <div class="card-icon-header text-success">
                         <i data-lucide="check-square"></i>
@@ -101,9 +98,9 @@
                 </div>
             </section>
 
-            <!-- Chart.js Graph Grid Layout -->
+
             <section class="charts-visualization-matrix">
-                <!-- Priority Breakdown (Bar Chart Canvas) -->
+
                 <div class="nm-card chart-container-card">
                     <div class="chart-header">
                         <i data-lucide="bar-chart-3"></i> <h3>Priority Distribution Weight</h3>
@@ -113,7 +110,7 @@
                     </div>
                 </div>
 
-                <!-- Category Quantities (Pie Chart Canvas) -->
+
                 <div class="nm-card chart-container-card">
                     <div class="chart-header">
                         <i data-lucide="pie-chart"></i> <h3>Category Focus Allocation</h3>
@@ -124,13 +121,13 @@
                 </div>
             </section>
 
-            <!-- Bottom Segment: Historic Activity Logs -->
+
             <section class="nm-card timeline-history-card">
                 <div class="chart-header">
                     <i data-lucide="history"></i> <h3>Platform Operations Log</h3>
                 </div>
                 <div class="timeline-logs-wrapper" id="activity-log-timeline">
-                    <!-- Iterative lifecycle logs will be loaded dynamically here -->
+
                     <div class="empty-timeline-notice">
                         <p>No operational items found in recent processing queues.</p>
                     </div>
@@ -141,7 +138,7 @@
 
     </div>
 
-    <!-- Storage and Synchronization Engines -->
+
     <script src="assets/js/storage.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
     <script src="assets/js/analytics.js" defer></script>

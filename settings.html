@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings Preference — DoItNow</title>
-    <!-- Core Application Architecture Stylesheets -->
+
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/settings.css">
-    <!-- Lucide Vector Icons Engine Integration -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="dashboard-wrapper">
-        
-        <!-- ==========================================
-             COLUMN 1: PERSISTENT NAVIGATION SIDEBAR
-             ========================================== -->
+
+
         <aside class="sidebar-container">
             <div class="sidebar-logo">
                 <div class="logo-dot"></div>
                 <span>DoItNow</span>
             </div>
-            
+
             <nav class="sidebar-menu">
                 <a href="dashboard.html" class="menu-item">
                     <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
@@ -49,12 +48,10 @@
             </div>
         </aside>
 
-        <!-- ==========================================
-             COLUMN 2: CENTRAL SETTINGS PREFERENCES HUB
-             ========================================== -->
+
         <main class="settings-workspace">
-            
-            <!-- Workspace Header Module -->
+
+
             <header class="workspace-header">
                 <div class="greeting-block">
                     <h1>Control Panel Preferences</h1>
@@ -71,8 +68,8 @@
             </header>
 
             <div class="settings-grid-layout">
-                
-                <!-- Profile Management Form Segment -->
+
+
                 <section class="nm-card settings-card-block">
                     <div class="chart-header">
                         <i data-lucide="user-check"></i> <h3>Identity Configuration</h3>
@@ -92,7 +89,7 @@
                     </form>
                 </section>
 
-                <!-- System Data Maintenance Segment -->
+
                 <section class="nm-card settings-card-block">
                     <div class="chart-header">
                         <i data-lucide="sliders"></i> <h3>Preferences & System Logs</h3>
@@ -100,7 +97,7 @@
                     <div class="settings-info-text">
                         <p>Manage localized engine properties. Adjusting these values cleans temporary storage blocks or restores application defaults safely.</p>
                     </div>
-                    
+
                     <div class="system-action-group">
                         <div class="system-row-item">
                             <div class="sys-label-left">
@@ -126,10 +123,10 @@
 
     </div>
 
-    <!-- Floating Toast Notification Stack Layer -->
+
     <div class="toast-notification-stack" id="toast-stack-container"></div>
 
-    <!-- Storage and Core Orchestration Scripts -->
+
     <script src="assets/js/storage.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
     <script src="assets/js/notifications.js" defer></script>

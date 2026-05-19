@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * MECHANICAL DRAG AND DROP REORDERING INTERFACE (dragdrop.js)
- * ==========================================================================
- */
-
 const DragDropEngine = {
     init() {
         this.container = document.getElementById('task-list-container');
@@ -13,7 +7,7 @@ const DragDropEngine = {
     },
 
     bindEvents() {
-        // Delegate drag lifecycle events to the main list container element
+
         this.container.addEventListener('dragstart', (e) => this.handleDragStart(e));
         this.container.addEventListener('dragover', (e) => this.handleDragOver(e));
         this.container.addEventListener('dragend', (e) => this.handleDragEnd(e));
@@ -25,13 +19,13 @@ const DragDropEngine = {
         if (!targetCard) return;
 
         targetCard.classList.add('is-dragging');
-        // Cache the active tracking node identifier directly within the event payload
+
         e.dataTransfer.setData('text/plain', targetCard.getAttribute('data-id'));
         e.dataTransfer.effectAllowed = 'move';
     },
 
     handleDragOver(e) {
-        e.preventDefault(); // Required to allow drop target zone interception actions
+        e.preventDefault();
         const draggingElement = document.querySelector('.is-dragging');
         if (!draggingElement) return;
 
@@ -53,7 +47,7 @@ const DragDropEngine = {
         this.rebuildTaskArrayFromDOM();
     },
 
-    // Calculate vertical element offsets to determine relative insert positions
+
     getDragAfterElement(container, y) {
         const draggableElements = [...container.querySelectorAll('.task-node-item:not(.is-dragging)')];
 
@@ -71,23 +65,22 @@ const DragDropEngine = {
     rebuildTaskArrayFromDOM() {
         const renderedCards = [...this.container.querySelectorAll('.task-node-item')];
         const masterTasksList = StorageEngine.getTasks();
-        
-        // Map DOM positional layout sequences to build a newly sorted results array
+
+
         const reorderedTasks = renderedCards.map(card => {
             const id = parseInt(card.getAttribute('data-id'), 10);
             return masterTasksList.find(task => task.id === id);
-        }).filter(Boolean); // Clear structural null values safely
+        }).filter(Boolean);
 
         StorageEngine.saveTasks(reorderedTasks);
-        
-        // Silently update metric displays to reflect changes
+
+
         if (window.TaskManager) {
             window.TaskManager.calculateMetrics(reorderedTasks);
         }
     }
 };
 
-// Reinitialization hook triggered during manual filter pipeline changes
 window.addEventListener('tasksUpdated', () => {
     DragDropEngine.init();
 });

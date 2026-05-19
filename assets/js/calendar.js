@@ -1,12 +1,6 @@
-/**
- * ==========================================================================
- * LOCALIZED GRID CALENDAR ITERATOR ENGINE (calendar.js)
- * ==========================================================================
- */
-
 const CalendarEngine = {
     init() {
-        this.currentDateContext = new Date(2026, 4, 18); // Synchronized precisely with system context date (May 2026)
+        this.currentDateContext = new Date(2026, 4, 18);
         this.selectedDateTracker = new Date(this.currentDateContext);
 
         this.cacheDOM();
@@ -14,7 +8,7 @@ const CalendarEngine = {
         this.renderCalendarGrid();
         this.renderDailyAgenda();
 
-        // Listen for real-time task updates
+
         window.addEventListener('tasksUpdated', () => this.refreshCalendar());
     },
 
@@ -51,33 +45,33 @@ const CalendarEngine = {
         const year = this.currentDateContext.getFullYear();
         const month = this.currentDateContext.getMonth();
 
-        // Print Month Text Label Content Header strings
+
         const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         this.monthYearLabel.innerText = `${monthNames[month]} ${year}`;
 
-        // Compute starting weekday index parameters and final numeric day lengths
+
         const firstDayIndex = new Date(year, month, 1).getDay();
         const totalDaysCount = new Date(year, month + 1, 0).getDate();
 
-        const todayObj = new Date(2026, 4, 18); // Dynamic static baseline clock
+        const todayObj = new Date(2026, 4, 18);
         const tasks = StorageEngine.getTasks();
 
-        // 1. Render empty neighbor paddings for leading month structures
+
         for (let i = 0; i < firstDayIndex; i++) {
             const emptyCell = document.createElement('div');
             emptyCell.className = 'calendar-day-node empty-neighbor-month';
             this.daysContainer.appendChild(emptyCell);
         }
 
-        // 2. Loop and generate interactive operational calendar layout blocks
+
         for (let day = 1; day <= totalDaysCount; day++) {
             const dayCell = document.createElement('div');
             dayCell.className = 'calendar-day-node';
             dayCell.innerText = day;
 
             const trackingDateString = `${year}-${(month + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-            
-            // Check for matching target events in dataset arrays
+
+
             const matchingDayTasks = tasks.filter(t => t.dueDate === trackingDateString);
 
             if (matchingDayTasks.length > 0) {
@@ -91,7 +85,7 @@ const CalendarEngine = {
                 dayCell.appendChild(indicatorRow);
             }
 
-            // Flag highlights matching specific clock states
+
             if (day === todayObj.getDate() && month === todayObj.getMonth() && year === todayObj.getFullYear()) {
                 dayCell.classList.add('is-today');
             }
@@ -100,9 +94,9 @@ const CalendarEngine = {
                 dayCell.classList.add('is-selected');
             }
 
-            // Bind contextual interactions to day slots
+
             dayCell.addEventListener('click', () => {
-                // Clear out current structural active flags across all nodes
+
                 document.querySelectorAll('.calendar-day-node').forEach(n => n.classList.remove('is-selected'));
                 dayCell.classList.add('is-selected');
 
@@ -121,7 +115,7 @@ const CalendarEngine = {
         const year = this.selectedDateTracker.getFullYear();
         const month = this.selectedDateTracker.getMonth() + 1;
         const day = this.selectedDateTracker.getDate();
-        
+
         const isoQueryString = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
         this.dateLabel.innerText = this.selectedDateTracker.toLocaleDateString(undefined, { dateStyle: 'long' });
 

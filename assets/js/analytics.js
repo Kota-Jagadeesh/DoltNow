@@ -1,30 +1,24 @@
-/**
- * ==========================================================================
- * DATA COMPILATION & VISUAL CHART GENERATION ENGINE (analytics.js)
- * ==========================================================================
- */
-
 const AnalyticsEngine = {
-    charts: {}, // Store chart instances for updates
+    charts: {},
 
     init() {
-        // Read active datasets from storage wrapper
+
         const tasks = StorageEngine.getTasks();
-        
+
         this.renderOverviewMetrics(tasks);
         this.generatePriorityChart(tasks);
         this.generateCategoryChart(tasks);
         this.renderActivityTimeline(tasks);
 
-        // Listen for real-time task updates
+
         window.addEventListener('tasksUpdated', () => this.refreshAnalytics());
     },
 
     refreshAnalytics() {
-        // Fresh data pull from storage
+
         const tasks = StorageEngine.getTasks();
-        
-        // Update all metrics
+
+
         this.renderOverviewMetrics(tasks);
         this.updatePriorityChart(tasks);
         this.updateCategoryChart(tasks);
@@ -39,13 +33,13 @@ const AnalyticsEngine = {
         const totalCount = tasks.length;
         const completedCount = tasks.filter(t => t.completed).length;
 
-        // Formulaic calculation maps
+
         const productivityScore = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
-        const velocityRatio = totalCount > 0 ? (completedCount / 3).toFixed(1) : "0.0"; // Evaluated over 3 active sprint days
+        const velocityRatio = totalCount > 0 ? (completedCount / 3).toFixed(1) : "0.0";
 
         if (scoreVal) {
             scoreVal.innerText = `${productivityScore}%`;
-            // Add smooth animation
+
             scoreVal.parentElement?.classList.add('metric-pulse');
             setTimeout(() => scoreVal.parentElement?.classList.remove('metric-pulse'), 600);
         }
@@ -65,12 +59,12 @@ const AnalyticsEngine = {
         const ctx = document.getElementById('priorityBarChart');
         if (!ctx) return;
 
-        // Compute density weight boundaries
+
         const highCount = tasks.filter(t => t.priority === 'high').length;
         const medCount = tasks.filter(t => t.priority === 'medium').length;
         const lowCount = tasks.filter(t => t.priority === 'low').length;
 
-        // Detect current root global theme to select accent borders perfectly
+
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const labelTextColor = isDark ? '#f7fafc' : '#2d3748';
 
@@ -177,7 +171,7 @@ const AnalyticsEngine = {
 
         timelineWrapper.innerHTML = '';
 
-        // Render up to 3 standard operation logging indices safely
+
         const visibleLogsSlice = tasks.slice(0, 3);
 
         visibleLogsSlice.forEach(task => {

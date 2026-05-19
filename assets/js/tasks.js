@@ -1,11 +1,5 @@
-/**
- * ==========================================================================
- * CORE TASK LIFECYCLE MANAGEMENT ENGINE (tasks.js)
- * ==========================================================================
- */
-
 const TaskManager = {
-    // Bootstraps state parameters and hooks click boundaries
+
     init() {
         this.cacheDOM();
         this.bindEvents();
@@ -19,8 +13,8 @@ const TaskManager = {
         this.cancelModalBtn = document.getElementById('cancel-modal-action-btn');
         this.form = document.getElementById('task-node-creation-form');
         this.taskListContainer = document.getElementById('task-list-container');
-        
-        // Metrics DOM Bindings
+
+
         this.statTotal = document.getElementById('stat-total-tasks');
         this.statPending = document.getElementById('stat-pending-tasks');
         this.statCompleted = document.getElementById('stat-completed-tasks');
@@ -29,18 +23,18 @@ const TaskManager = {
     },
 
     bindEvents() {
-        // Modal Visibility Triggers (only on pages that have task creation modal)
+
         if (this.openModalBtn) this.openModalBtn.addEventListener('click', () => this.toggleModal(true));
         if (this.closeModalBtn) this.closeModalBtn.addEventListener('click', () => this.toggleModal(false));
         if (this.cancelModalBtn) this.cancelModalBtn.addEventListener('click', () => this.toggleModal(false));
-        
-        // Form intercept submission logic (only on pages that have task form)
+
+
         if (this.form) this.form.addEventListener('submit', (e) => this.handleTaskCreation(e));
     },
 
     toggleModal(show) {
         if (show) {
-            // Set input defaults to current time boundary
+
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('task-date-input').value = today;
             this.modal.classList.add('is-visible');
@@ -60,7 +54,7 @@ const TaskManager = {
         const dueTime = document.getElementById('task-time-input').value;
 
         const newTask = {
-            id: Date.now(), // Unique structural time tracker identifier
+            id: Date.now(),
             title,
             category,
             priority,
@@ -70,14 +64,14 @@ const TaskManager = {
         };
 
         const currentTasks = StorageEngine.getTasks();
-        currentTasks.unshift(newTask); // Push tracking node into front execution pipeline
+        currentTasks.unshift(newTask);
         StorageEngine.saveTasks(currentTasks);
 
         ToastNotification.show("Action node committed successfully!", "success");
         this.toggleModal(false);
         this.render();
-        
-        // Optional dispatch hook for local system modules like Search or Sort pipelines
+
+
         window.dispatchEvent(new Event('tasksUpdated'));
     },
 
@@ -101,7 +95,7 @@ const TaskManager = {
 
     deleteTask(id) {
         if (!confirm("Are you sure you want to remove this operational task node?")) return;
-        
+
         const currentTasks = StorageEngine.getTasks();
         const filteredTasks = currentTasks.filter(task => task.id !== id);
         StorageEngine.saveTasks(filteredTasks);
@@ -115,13 +109,13 @@ const TaskManager = {
         const total = tasks.length;
         const completed = tasks.filter(t => t.completed).length;
         const pending = total - completed;
-        
+
         const profile = StorageEngine.getUserProfile();
         const currentDailyGoal = profile.dailyGoal || 5;
         const completionPercentage = total > 0 ? Math.round((completed / currentDailyGoal) * 100) : 0;
         const boundedPercentage = Math.min(completionPercentage, 100);
 
-        // Update DOM displays safely
+
         if (this.statTotal) this.statTotal.innerText = total;
         if (this.statPending) this.statPending.innerText = pending;
         if (this.statCompleted) this.statCompleted.innerText = completed;
@@ -131,7 +125,7 @@ const TaskManager = {
 
     render(tasksToRender = null) {
         const tasks = tasksToRender || StorageEngine.getTasks();
-        this.calculateMetrics(StorageEngine.getTasks()); // Always parse metrics against base data source
+        this.calculateMetrics(StorageEngine.getTasks());
 
         if (!this.taskListContainer) return;
         this.taskListContainer.innerHTML = '';
@@ -153,7 +147,7 @@ const TaskManager = {
             card.setAttribute('draggable', 'true');
             card.setAttribute('data-id', task.id);
 
-            // Match structural labels for dates nicely
+
             const dateOptions = { month: 'short', day: 'numeric' };
             const formattedDate = new Date(task.dueDate).toLocaleDateString(undefined, dateOptions);
 
@@ -186,7 +180,6 @@ const TaskManager = {
     }
 };
 
-// Auto-trigger on clean execution access paths
 document.addEventListener('DOMContentLoaded', () => {
     TaskManager.init();
 });

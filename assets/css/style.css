@@ -1,7 +1,3 @@
-/* ==========================================================================
-   GLOBAL STYLE & LANDING PAGE CORE (style.css)
-   ========================================================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -17,12 +13,10 @@ body {
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* --- Reusable Neumorphic Components --- */
 html {
      scroll-behavior: smooth;
 }
 
-/* Prevent FOUC (Flash of Unstyled Content) for icons */
 [data-lucide] {
      display: inline-block;
      vertical-align: middle;
@@ -83,7 +77,6 @@ html {
     box-shadow: var(--nm-pressed);
 }
 
-/* --- Navigation Header --- */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -115,7 +108,6 @@ html {
     gap: 1.5rem;
 }
 
-/* --- Hero Section --- */
 .hero-container {
     max-width: 1200px;
     margin: 4rem auto;
@@ -160,7 +152,6 @@ html {
     line-height: 1.6;
 }
 
-/* --- Features Grid (Bento Layout) --- */
 .features-section {
     max-width: 1200px;
     margin: 6rem auto;
@@ -205,11 +196,90 @@ html {
     line-height: 1.5;
 }
 
-/* --- Footer Area --- */
 .main-footer {
     text-align: center;
     padding: 3rem;
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-top: 4rem;
+}
+
+@media (max-width: 960px) {
+    .navbar {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .nav-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+
+    .hero-container,
+    .features-section {
+        padding: 0 1.5rem;
+    }
+
+    .hero-container {
+        margin: 3rem auto;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 6vw, 3.25rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .nav-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .hero-container {
+        margin: 2.5rem auto;
+        padding: 0 1rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .section-label {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nm-card,
+    .nm-btn-accent {
+        width: 100%;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
 }

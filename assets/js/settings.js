@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * PREFERENCES INTERFACE HANDLER ENGINE (settings.js)
- * ==========================================================================
- */
-
 const SettingsPanelEngine = {
     init() {
         this.cacheDOM();
@@ -20,9 +14,9 @@ const SettingsPanelEngine = {
     },
 
     hydrateFields() {
-        // Read existing profile details directly from storage mapping definitions
+
         const currentProfile = StorageEngine.getUserProfile();
-        
+
         if (this.usernameInput) this.usernameInput.value = currentProfile.name || '';
         if (this.goalInput) this.goalInput.value = currentProfile.dailyGoal || 5;
     },
@@ -47,7 +41,7 @@ const SettingsPanelEngine = {
         const updatedName = this.usernameInput.value.trim();
         const updatedGoal = parseInt(this.goalInput.value, 10);
 
-        // Use the new profile update method with built-in event dispatching
+
         StorageEngine.updateUserProfile({
             name: updatedName,
             dailyGoal: updatedGoal
@@ -55,10 +49,10 @@ const SettingsPanelEngine = {
 
         ToastNotification.show("✅ Identity parameters updated successfully", "success");
 
-        // Force synchronized updates across parent layout components instantly
+
         const nameDisplay = document.getElementById('profile-name-display');
         if (nameDisplay) nameDisplay.innerText = updatedName;
-        
+
         const avatarSlot = document.getElementById('sidebar-avatar-placeholder');
         if (avatarSlot && updatedName.length > 0) {
             avatarSlot.innerText = updatedName.charAt(0).toUpperCase();
@@ -68,7 +62,7 @@ const SettingsPanelEngine = {
     handleClearTasksCache() {
         if (!confirm("Are you sure you want to flush all allocated task data arrays? This action preserves your profile fields.")) return;
 
-        StorageEngine.saveTasks([]); // Overwrite execution pool with clean index maps
+        StorageEngine.saveTasks([]);
         ToastNotification.show("Task logs cleaned successfully", "warning");
     },
 
@@ -78,7 +72,7 @@ const SettingsPanelEngine = {
         localStorage.removeItem(StorageEngine.STORAGE_KEY);
         ToastNotification.show("Platform data scrubbed. Reloading engine...", "error");
 
-        // Delay refreshing the viewport to give toast cycles room to display their state animations
+
         setTimeout(() => {
             window.location.href = 'index.html';
         }, 1500);

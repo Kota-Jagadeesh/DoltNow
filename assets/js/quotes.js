@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * MOTIVATIONAL MANIFESTO & LIVE CLOCK INFRASTRUCTURE (quotes.js)
- * ==========================================================================
- */
-
 const DashboardAnalyticsHeader = {
     quotes: [
         "Small progress is still progress.",
@@ -16,10 +10,10 @@ const DashboardAnalyticsHeader = {
     init() {
         this.renderLiveClock();
         this.cycleManifestoQuote();
-        
-        // Setup structural execution intervals
+
+
         setInterval(() => this.renderLiveClock(), 1000);
-        setInterval(() => this.cycleManifestoQuote(), 60000); // Shift quotes every 60 seconds
+        setInterval(() => this.cycleManifestoQuote(), 60000);
     },
 
     renderLiveClock() {

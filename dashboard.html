@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard — DoItNow</title>
-    <!-- Core Themes and Component Stylesheets -->
+
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <!-- Lucide Vector Icons Engine -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="dashboard-wrapper">
-        
-        <!-- ==========================================
-             COLUMN 1: TACTILE NAVIGATION SIDEBAR
-             ========================================== -->
+
+
         <aside class="sidebar-container">
             <div class="sidebar-logo">
                 <div class="logo-dot"></div>
                 <span>DoItNow</span>
             </div>
-            
+
             <nav class="sidebar-menu">
                 <a href="dashboard.html" class="menu-item active">
                     <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
@@ -40,7 +38,7 @@
                 </a>
             </nav>
 
-            <!-- Mini User Profile Badge Block -->
+
             <div class="sidebar-profile-card">
                 <div class="profile-avatar-slot">U</div>
                 <div class="profile-info-slot">
@@ -50,18 +48,16 @@
             </div>
         </aside>
 
-        <!-- ==========================================
-             COLUMN 2: MAIN TASK MANIPULATION HUB
-             ========================================== -->
+
         <main class="main-workspace">
-            
-            <!-- Dynamic Header Panel -->
+
+
             <header class="workspace-header">
                 <div class="greeting-block">
                     <h1 id="dynamic-greeting">Welcome Back</h1>
                     <p id="live-clock-display">Loading system time...</p>
                 </div>
-                <!-- Dynamic Quote Ticker -->
+
                 <div class="quote-ticker-container">
                     <p id="manifesto-quote">"Small progress is still progress."</p>
                 </div>
@@ -72,7 +68,7 @@
                 </div>
             </header>
 
-            <!-- Real-time Quantitative Analytics Cards -->
+
             <section class="metrics-dashboard-row">
                 <div class="metric-nm-card">
                     <span class="metric-label">Total Allocated</span>
@@ -95,7 +91,7 @@
                 </div>
             </section>
 
-            <!-- Search, Advanced Sorting & Filters Pipeline Section -->
+
             <section class="filter-pipeline-control">
                 <div class="search-input-wrapper">
                     <i data-lucide="search" class="input-icon"></i>
@@ -123,9 +119,9 @@
                 </button>
             </section>
 
-            <!-- Dynamic Drag & Drop Task Render Targets -->
+
             <section class="task-render-canvas" id="task-list-container">
-                <!-- Task items will be dynamically appended here via tasks.js -->
+
                 <div class="empty-state-card">
                     <i data-lucide="shield-alert" class="empty-icon"></i>
                     <p>No active operational items found matching filters. Create an action task to get started!</p>
@@ -133,12 +129,10 @@
             </section>
         </main>
 
-        <!-- ==========================================
-             COLUMN 3: SECONDARY WORKSPACE UTILITIES
-             ========================================== -->
+
         <aside class="utility-sidebar">
-            
-            <!-- Pomodoro Focus Timer Panel Container -->
+
+
             <div class="nm-card sub-panel-card pomodoro-panel">
                 <div class="panel-header">
                     <i data-lucide="timer"></i> <h3>Pomodoro Focus</h3>
@@ -158,7 +152,7 @@
                 </div>
             </div>
 
-            <!-- Quick Scratchpad Sticky Notes Grid Component -->
+
             <div class="nm-card sub-panel-card scratchpad-panel">
                 <div class="panel-header">
                     <i data-lucide="edit-3"></i> <h3>Tactile Scratchpad</h3>
@@ -168,9 +162,7 @@
         </aside>
     </div>
 
-    <!-- ==========================================
-         FLOATING LAYER: TASK CREATION MODAL WINDOW
-         ========================================== -->
+
     <div class="modal-overlay-backdrop" id="task-creation-modal">
         <div class="nm-modal-content-box">
             <div class="modal-box-header">
@@ -182,7 +174,7 @@
                     <label for="task-title-input">Task Title Description</label>
                     <input type="text" id="task-title-input" class="nm-input" required placeholder="e.g., Submit ASC Newsletter Abstract">
                 </div>
-                
+
                 <div class="form-grid-row">
                     <div class="form-input-block">
                         <label for="task-category-select">Category</label>
@@ -224,12 +216,10 @@
         </div>
     </div>
 
-    <!-- ==========================================
-         FLOATING LAYER: NON-BLOCKING TOAST ALERTS
-         ========================================== -->
+
     <div class="toast-notification-stack" id="toast-stack-container"></div>
 
-    <!-- Infrastructure Scripts Integration -->
+
     <script src="assets/js/storage.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
     <script src="assets/js/notifications.js" defer></script>
@@ -240,7 +230,6 @@
     <script src="assets/js/pomodoro.js" defer></script>
     <script src="assets/js/app.js" defer></script>
     <script>
-        // Structural Icon Parsing Trigger Loop
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });

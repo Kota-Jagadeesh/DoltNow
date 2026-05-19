@@ -1,13 +1,7 @@
-/**
- * ==========================================================================
- * LOCAL STORAGE APPLICATION STATE ENGINE (storage.js)
- * ==========================================================================
- */
-
 const StorageEngine = {
     STORAGE_KEY: 'doitnow_state',
 
-    // Fallback blueprint data for initial loading conditions
+
     getInitialState() {
         return {
             user: {
@@ -17,7 +11,7 @@ const StorageEngine = {
             },
             tasks: [
                 {
-                    id: 1716228000000, 
+                    id: 1716228000000,
                     title: "Submit Modern Android Abstract to ASC Newsletter",
                     category: "Study",
                     priority: "high",
@@ -48,7 +42,7 @@ const StorageEngine = {
         };
     },
 
-    // Ingest state object from local memory space
+
     getState() {
         const rawData = localStorage.getItem(this.STORAGE_KEY);
         if (!rawData) {
@@ -59,12 +53,12 @@ const StorageEngine = {
         return JSON.parse(rawData);
     },
 
-    // Commit complete application state map back to browser disk memory
+
     saveState(state) {
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(state));
     },
 
-    // Task Array Extractors
+
     getTasks() {
         return this.getState().tasks;
     },
@@ -75,7 +69,7 @@ const StorageEngine = {
         this.saveState(state);
     },
 
-    // Scratchpad Text Buffers
+
     getScratchpad() {
         return this.getState().scratchpad;
     },
@@ -86,17 +80,17 @@ const StorageEngine = {
         this.saveState(state);
     },
 
-    // Profile Block Data Fetchers
+
     getUserProfile() {
         return this.getState().user;
     },
 
-    // Profile Update Methods
+
     updateUserProfile(profileData) {
         const state = this.getState();
         state.user = { ...state.user, ...profileData };
         this.saveState(state);
-        // Dispatch event for real-time updates across all pages
+
         window.dispatchEvent(new CustomEvent('profileUpdated', { detail: state.user }));
     },
 

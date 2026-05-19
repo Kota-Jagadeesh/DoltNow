@@ -1,9 +1,3 @@
-/**
- * ==========================================================================
- * TOAST NOTIFICATION DISPLAY ENGINE (notifications.js)
- * ==========================================================================
- */
-
 const ToastNotification = {
     show(message, type = 'info') {
         const container = document.getElementById('toast-stack-container');
@@ -13,7 +7,7 @@ const ToastNotification = {
         toast.className = `toast-item toast-${type}`;
         toast.textContent = message;
 
-        // Add semantic icon mapping
+
         const icons = {
             'success': '✅',
             'error': '❌',
@@ -25,7 +19,7 @@ const ToastNotification = {
 
         container.appendChild(toast);
 
-        // Auto-remove after 3 seconds
+
         setTimeout(() => {
             toast.style.animation = 'slideOutToast 0.3s ease-in forwards';
             setTimeout(() => toast.remove(), 300);
@@ -33,5 +27,4 @@ const ToastNotification = {
     }
 };
 
-// Export for browser environment
 window.ToastNotification = ToastNotification;

@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar Schedule — DoItNow</title>
-    <!-- Core Application Architecture Stylesheets -->
+
     <link rel="stylesheet" href="assets/css/themes.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/calendar.css">
-    <!-- Lucide Vector Icons Engine Integration -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="dashboard-wrapper">
-        
-        <!-- ==========================================
-             COLUMN 1: PERSISTENT NAVIGATION SIDEBAR
-             ========================================== -->
+
+
         <aside class="sidebar-container">
             <div class="sidebar-logo">
                 <div class="logo-dot"></div>
                 <span>DoItNow</span>
             </div>
-            
+
             <nav class="sidebar-menu">
                 <a href="dashboard.html" class="menu-item">
                     <i data-lucide="layout-dashboard"></i> <span>Dashboard</span>
@@ -49,12 +48,10 @@
             </div>
         </aside>
 
-        <!-- ==========================================
-             COLUMN 2: CALENDAR SCHEDULER BOARD
-             ========================================== -->
+
         <main class="calendar-workspace">
-            
-            <!-- Workspace Header Module -->
+
+
             <header class="workspace-header">
                 <div class="greeting-block">
                     <h1>Calendar Schedule</h1>
@@ -70,7 +67,7 @@
                 </div>
             </header>
 
-            <!-- Interactive Calendar Engine Grid Block -->
+
             <section class="nm-card calendar-frame-container">
                 <div class="calendar-navigation-bar">
                     <button class="nm-btn" id="prev-month-btn"><i data-lucide="chevron-left"></i></button>
@@ -78,16 +75,16 @@
                     <button class="nm-btn" id="next-month-btn"><i data-lucide="chevron-right"></i></button>
                 </div>
 
-                <!-- 7-Column Weekday Header -->
+
                 <div class="calendar-weekdays-header">
                     <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
                 </div>
 
-                <!-- Day Blocks Render Area Target -->
+
                 <div class="calendar-days-grid" id="calendar-days-container"></div>
             </section>
 
-            <!-- Sub Section: Agenda Viewer for Selected Date -->
+
             <section class="agenda-focus-area">
                 <div class="agenda-title-row">
                     <i data-lucide="calendar-range" class="text-accent"></i>
@@ -104,7 +101,7 @@
 
     </div>
 
-    <!-- Storage and Core Orchestration Scripts -->
+
     <script src="assets/js/storage.js" defer></script>
     <script src="assets/js/theme.js" defer></script>
     <script src="assets/js/tasks.js" defer></script>
